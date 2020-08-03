@@ -9,6 +9,7 @@
    http://www.springframework.org/schema/aop 
    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 
+	<aop:aspectj-autoproxy />
 
    <!-- bean definition & AOP specific configuration -->
 
@@ -21,7 +22,9 @@
 </bean>
 
 <bean name="shapeservice_id" class="com.shivam.spring_aop.service.ShapeService" autowire="byName">
+</bean>
 
+<bean name="LoggingAspect" class="com.shivam.spring_aop.aspect.LoggingAspect">
 </bean>
 
 

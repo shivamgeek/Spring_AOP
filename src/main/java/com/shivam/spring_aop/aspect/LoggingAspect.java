@@ -15,18 +15,23 @@ public class LoggingAspect {
 	 */
 	
 	
-	@Before("dummyPointcutFunction()")
+	@Before("dummyPointcutFunction() && allCircleMethods()")
 	public void LoggingAdvice() {
 		System.out.println("LoggingAdvice method of aspect logging invoked");
 	}
 	
-	@Before("dummyPointcutFunction()")
+	@Before("allCircleMethods()")
 	public void SecondLoggingAdvice() {
 		System.out.println("SecondLoggingAdvice() of logging invoked");
 	}
 	
+	//for all functions with below signature having "get" in it's name. "execution" pointcut works for method names
 	@Pointcut("execution(public String get*())")
 	public void dummyPointcutFunction() {}
+	
+	//for all functions of circle class. "within" pointcut works for class names
+	@Pointcut("within(com.shivam.spring_aop.model.Circle)")
+	public void allCircleMethods() {}
 	
 }
  

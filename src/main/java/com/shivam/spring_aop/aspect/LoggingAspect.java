@@ -1,6 +1,7 @@
 package com.shivam.spring_aop.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -16,7 +17,7 @@ public class LoggingAspect {
 	 */
 	
 	
-	@Before("allCircleMethods()")
+	@After("allCircleMethods()")
 	public void LoggingAdvice(JoinPoint pt) {
 		System.out.println("Advice invoking method : "+pt);
 	}

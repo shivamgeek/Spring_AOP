@@ -22,6 +22,10 @@ public class LoggingAspect {
 		System.out.println("Advice invoking method : "+pt);
 	}
 	
+	@Before("@annotation(com.shivam.spring_aop.aspect.Loggable)")
+	public void customAnnotation() {
+		System.out.println("This is a custom Loggable Annotation");
+	}
 	
 	//for all functions with below signature having "get" in it's name. "execution" pointcut works for method names
 	@Pointcut("execution(public String get*())")

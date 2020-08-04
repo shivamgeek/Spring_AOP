@@ -1,5 +1,6 @@
 package com.shivam.spring_aop.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -15,15 +16,11 @@ public class LoggingAspect {
 	 */
 	
 	
-	@Before("dummyPointcutFunction() && allCircleMethods()")
-	public void LoggingAdvice() {
-		System.out.println("LoggingAdvice method of aspect logging invoked");
+	@Before("allCircleMethods()")
+	public void LoggingAdvice(JoinPoint pt) {
+		System.out.println("Advice invoking method : "+pt);
 	}
 	
-	@Before("allCircleMethods()")
-	public void SecondLoggingAdvice() {
-		System.out.println("SecondLoggingAdvice() of logging invoked");
-	}
 	
 	//for all functions with below signature having "get" in it's name. "execution" pointcut works for method names
 	@Pointcut("execution(public String get*())")
